@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            Base Template
+        {% endblock %}
+    </title>
+    <link rel='stylesheet' type="text/css" href="{% static 'main.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="mySidebar" class="sidebar">
+        <!---TODO: Implement check for admin/user--->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Dashboard</a>
+        <a href="#" class="sidebar-sub">Baca</a>
+        <a href="#" class="sidebar-sub">Peminjaman</a>
+        <a href="#" class="sidebar-sub">Pengembailan</a>
+        <a href="#" class="sidebar-sub">Keterangan Denda</a>
+        <a href="#" class="sidebar-sub">Data Buku</a>
+        <a href="#">Data Anggota</a>
+        <a href="#">Statistik</a>
+        <a href="#">Input Data</a>
+        <a href="#">Panduan</a>
+    </div>
+    <div id="main">
+        <div class="logo_header">
+            <span><button class="openbtn" onclick="openNav()">&#9776;</button></span>
+            <span>GO-PUS</span>
+        </div>
+        <div style="min-height: 100vh">
+            {% block body %}
+                you should not see this
+            {% endblock %}
+        </div>
+    </div>
+</body>
+<script>
+    /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "25%";
+      document.getElementById("main").style.marginLeft = "25%";
+      document.getElementById("openbtn").style.display = "none";
+    }
+
+    /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft = "0";
+      document.getElementById("openbtn").style.display = "block";
+    }
+</script>
+</html>
