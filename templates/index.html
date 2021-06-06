@@ -11,7 +11,12 @@
     {% block body %}
         <div class="welcome-message">
         <br>
-            <span>Selamat datang di aplikasi Go-Pus!</span>
+            <span style="font-size: 2em">Selamat datang di aplikasi Go-Pus!</span>
+            <div>
+                <div>Jumlah koleksi: {{ jumlah_koleksi }}</div>
+                <div>Jumlah buku: {{ jumlah_buku }}</div>
+                <div>Jumlah buku tersedia: {{ jumlah_buku_tersedia }} </div>
+            </div>
         </div>
     {% endblock %}
     

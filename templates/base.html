@@ -16,22 +16,37 @@
     <div id="mySidebar" class="sidebar">
         <!---TODO: Implement check for admin/user--->
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">Dashboard</a>
+        <a href="/">Dashboard</a>
         <a href="#" class="sidebar-sub">Baca</a>
         <a href="#" class="sidebar-sub">Peminjaman</a>
         <a href="#" class="sidebar-sub">Pengembailan</a>
         <a href="#" class="sidebar-sub">Keterangan Denda</a>
         <a href="#" class="sidebar-sub">Data Buku</a>
-        <a href="#">Data Anggota</a>
+        {% if user.is_authenticated %}
+        <a href="/profil">Data Anggota</a>
+        {% else %}
+            <a href="/login">Login</a>
+        {% endif %}
         <a href="#">Statistik</a>
         <a href="#">Input Data</a>
         <a href="#">Panduan</a>
+        {% if user.is_authenticated %}
+        <a href="/logout">Logout</a>
+        {% endif %}
     </div>
     <div id="main">
         <div class="logo_header">
-            <span><button class="openbtn" onclick="openNav()">&#9776;</button></span>
+            <span>
+                <button class="openbtn" onclick="openNav()">&#9776;</button>
+            </span>
             <span>GO-PUS</span>
         </div>
+        <div style="width: 100%">
+            {% if user.is_authenticated %}
+                <span style="margin-right: 0; margin-left: auto">Hello, {{ request.user.first_name }}</span>
+            {% endif %}
+        </div>
+
         <div style="min-height: 100vh">
             {% block body %}
                 you should not see this

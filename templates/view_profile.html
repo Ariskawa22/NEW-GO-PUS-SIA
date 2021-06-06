@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}
+    Profil Saya
+{% endblock %}
+
+{% block body %}
+    <style>
+        td{
+            border: #67A18A solid thin;
+            border-radius: 10px;
+            padding: 5px;
+        }
+        .empty{
+            border: none;
+        }
+    </style>
+    <table width="75%" style="text-align: left; margin-left: auto; margin-right: auto">
+        <tr>
+            <td class="empty"></td>
+            <td style="width: 25%; padding: 0; border:none"><img src="{{ request.user.profile.url_foto }}" style="width: 100%; padding: 0; border-radius: 100px; box-shadow: #0000"></td>
+            <td class="empty"></td>
+        </tr>
+        <tr>
+            <th>Nama</th>
+            <th class="empty"></th>
+            <th>Nomor HP</th>
+        </tr>
+        <tr>
+            <td>
+                {{ request.user.first_name }} {{ request.user.last_name }}
+            </td>
+            <td class="empty"></td>
+            <td>{{ request.user.profile.telepon }}</td>
+        </tr>
+        <tr>
+            <th>
+               Kelas
+            </th>
+            <th class="empty"></th>
+            <th>
+                NIS
+            </th>
+        </tr>
+        <tr>
+            <td>
+                {{ request.user.profile.kelas }}
+            </td>
+            <td class="empty"></td>
+            <td>{{ request.user.profile.nis }}</td>
+        </tr>
+        <tr>
+            <th>
+                Email
+            </th>
+        </tr>
+        <tr>
+           <td>
+               {{ request.user.email }}
+           </td>
+        </tr>
+    </table>
+{% endblock %}
