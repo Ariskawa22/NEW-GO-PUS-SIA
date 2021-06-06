@@ -7,3 +7,4 @@ six==1.10.0
 selenium==3.5.0
 whitenoise==5.0.1
 crispy-forms-gds
+dj-database-url
