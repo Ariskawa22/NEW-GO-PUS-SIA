@@ -77,6 +77,7 @@
 .body{
     background-color: antiquewhite;
     font-weight: bold;
+    font-family: 'Poppins', sans-serif;
 }
 .welcome-message{
     color: #67A18A;
@@ -88,4 +89,7 @@
     top: 50%;
     bottom: 50%;
     text-align: center;
+}
+.helptext{
+    font-style: italic;
 }

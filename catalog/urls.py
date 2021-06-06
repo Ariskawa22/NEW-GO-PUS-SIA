@@ -5,7 +5,7 @@ from django.contrib.auth import views as auth_views
 
 from catalog.views import index, BukuUpdate, BukuDelete, BukuCreate, BukuDetailView, SemuaBukuKeluar, \
     BukuListView, BukuKeluarUser, perbaharui_status_buku, PenulisListView, PenulisDetailView, PenulisCreate, \
-    PenulisUpdate, view_profile
+    PenulisUpdate, view_profile, create_profile, create_user
 
 urlpatterns = [
     path('', index, name='index'),
@@ -24,4 +24,6 @@ urlpatterns = [
     path('profil', view_profile, name="view-profile"),
     url('login/', auth_views.LoginView.as_view(),name='login'),
     url('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('register/', create_user, name="register"),
+    path('account-details/', create_profile, name="profile-details")
 ]

@@ -26,6 +26,7 @@
         <a href="/profil">Data Anggota</a>
         {% else %}
             <a href="/login">Login</a>
+            <a href="/register">Daftar</a>
         {% endif %}
         <a href="#">Statistik</a>
         {% if user.is_superuser %}
@@ -49,7 +50,7 @@
             {% endif %}
         </div>
 
-        <div style="min-height: 100vh">
+        <div style="min-height: 100vh; font-family: 'Poppins', sans-serif">
             {% block body %}
                 you should not see this
             {% endblock %}

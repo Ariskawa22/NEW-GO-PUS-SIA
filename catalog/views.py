@@ -1,5 +1,6 @@
 import datetime
 
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth.models import User
@@ -11,7 +12,7 @@ from django.urls import reverse
 from django.views.generic import CreateView, UpdateView, DeleteView
 
 from . import forms
-from .forms import RenewBookForm, ProfileForm, UserForm
+from .forms import RenewBookForm, ProfileForm, UserForm, RegistrationForm
 from .models import Buku, BukuInstance, Penulis, Profile
 from django.views import generic
 
@@ -129,4 +130,47 @@ class BukuDelete(PermissionRequiredMixin, DeleteView):
 @login_required()
 def view_profile(request):
     return render(request, 'view_profile.html')
+
+
+@transaction.atomic()
+def create_user(request):
+    form = RegistrationForm(request.POST)
+    message = "Create your account"
+    if request.method == "POST":
+        if form.is_valid():
+            new_user = form.save()
+            new_user = authenticate(username=form.cleaned_data.get("username"),
+                                    password=form.cleaned_data.get("password1"))
+            """if authenticate(request, new_user):"""
+            login(request, new_user)
+            return HttpResponseRedirect('/account-details/')
+    context = {'form': form}
+    return render(request, 'auth/register.html', context)
+
+
+@transaction.atomic()
+@login_required()
+def create_profile(request):
+    form = ProfileForm(request.POST)
+    message = "Add your profile"
+    if request.method == 'POST':
+        formProfile = ProfileForm(request.POST, instance=request.user.profile)
+        if formProfile.is_valid():
+            formProfile.save()
+            return redirect('view-profile')
+    else:
+        current_user = request.user.get_username()
+        context = {
+            'form': ProfileForm(instance=request.user.profile),
+            'name': request.user.first_name
+        }
+
+    return render(request, 'auth/add_profile.html', context)
+
+
+@transaction.atomic()
+@login_required()
+def view_profile(request):
+    return render(request, 'auth/view_profile.html')
+
 

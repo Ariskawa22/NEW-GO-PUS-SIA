@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}
+    Isi informasi
+{% endblock %}
+{% block body %}
+    <div style="width: 100%; text-align: center">
+        <form method="post" style="width: 100%">
+            {% csrf_token %}
+            <table style="width: 100%; text-align: center">
+                <tr>
+                    <th>Kelas</th>
+                    <td>{{ form.kelas }}</td>
+                </tr>
+                <tr>
+                    <th>NIS</th>
+                    <td>{{ form.nis }}</td>
+                </tr>
+                <tr>
+                    <th>Telepon</th>
+                    <td>{{ form.telepon }}</td>
+                </tr>
+                <tr>
+                    <th>Link Foto Profil</th>
+                    <td>{{ form.url_foto }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="helptext">Gunakan fasilitas hosting foto (Google Photos, image.bb) untuk mengupload foto profil.</td>
+                </tr>
+            </table>
+            <button class="basicbutton" type="submit">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}
