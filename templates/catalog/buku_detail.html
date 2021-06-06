@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ buku.judul }}
+{% endblock %}
+{% block body %}
+    <section>
+        <div style="width: 25%; float: left; display: block">
+            <img src="{{ buku.url_sampul }}" width="100%">
+        </div>
+        <div style="width: 70%; display: inline; margin-left: 20px; text-align: left; float: right">
+            <h2>
+                Judul
+            </h2>
+            <span>
+                {{ buku.judul }}
+            </span>
+            <h2>
+                Penulis
+            </h2>
+            <span>
+                {{ buku.penulis }}
+            </span>
+            <h2>
+                ISBN
+            </h2>
+            <span>
+                {{ buku.isbn }}
+            </span>
+            <h2>
+                Tahun Terbit
+            </h2>
+            <span>
+                {{ buku.tahun }}
+            </span>
+            <h2>
+                Stok
+            </h2>
+            <span>
+                {{ buku.bukuinstance_set.count }}
+            </span>
+            <h2>
+                Lokasi Rak
+            </h2>
+            <span>
+                {{ buku.lokasi }}
+            </span>
+        </div>
+    </section>
+{% endblock %}
