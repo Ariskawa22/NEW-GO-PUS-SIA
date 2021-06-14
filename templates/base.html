@@ -18,10 +18,10 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="/">Dashboard</a>
         <a href="/buku" class="sidebar-sub">Lihat Buku</a>
-        <a href="#" class="sidebar-sub">Peminjaman</a>
-        <a href="#" class="sidebar-sub">Pengembailan</a>
-        <a href="#" class="sidebar-sub">Keterangan Denda</a>
-        <a href="#" class="sidebar-sub">Data Buku</a>
+        <a href="#" class="sidebar-sub" style="display: none">Peminjaman</a>
+        <a href="#" class="sidebar-sub" style="display: none">Pengembailan</a>
+        <a href="#" class="sidebar-sub" style="display: none">Keterangan Denda</a>
+        <a href="#" class="sidebar-sub" style="display: none">Data Buku</a>
         {% if user.is_authenticated %}
         <a href="/profil">Data Anggota</a>
         {% else %}
