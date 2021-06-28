@@ -5,7 +5,8 @@
 {% block body %}
     <section>
         <div style="width: 25%; float: left; display: block">
-            <img src="{{ buku.url_sampul }}" width="100%">
+            <img src="{{ buku.url_sampul }}" id="sampul" width="100%">
+            <script>console.log({{ buku.url_sampul }})</script>
         </div>
         <div style="width: 70%; display: inline; margin-left: 20px; text-align: left; float: right">
             <h2>

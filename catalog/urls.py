@@ -4,16 +4,16 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
 from catalog.views import index, BukuUpdate, BukuDelete, BukuCreate, BukuDetailView, SemuaBukuKeluar, \
-    BukuListView, BukuKeluarUser, perbaharui_status_buku, PenulisListView, PenulisDetailView, PenulisCreate, \
+    BukuListView, bukuKeluarUser, perbaharui_status_buku, PenulisListView, PenulisDetailView, PenulisCreate, \
     PenulisUpdate, view_profile, create_profile, create_user
 
 urlpatterns = [
     path('', index, name='index'),
     path('buku/', BukuListView.as_view(), name="buku"),
     path('buku/<int:pk>', BukuDetailView.as_view(), name="detail-buku"),
-    path('bukusaya/', BukuKeluarUser.as_view(), name="buku-saya"),
+    path('bukusaya/', bukuKeluarUser, name="buku-saya"),
     path(r'buku/keluar/', SemuaBukuKeluar.as_view(), name="buku-keluar"),
-    path('buku/<uuid:pk>/perbaharui', perbaharui_status_buku, name="perbaharui-buku"),
+    path('buku/<int:pk>/perbaharui', perbaharui_status_buku, name="perbaharui-buku"),
     path('buku/tambah/', BukuCreate.as_view(), name="tambah-buku"),
     path('buku/ubah/', BukuUpdate.as_view(), name="ubah-buku"),
     path('buku/hapus/', BukuDelete.as_view(), name="hapus-buku"),

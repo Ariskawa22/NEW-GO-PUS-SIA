@@ -45,7 +45,19 @@ class BukuInstance(models.Model):
             return True
         else:
             return False
+    @property
+    def hariTersisa(self):
+        return str((self.batas_waktu - date.today()).days) + " hari"
+    @property
+    def terlambatBy(self):
+        if self.batas_waktu and (date.today() > self.batas_waktu):
+            return str((date.today()-self.batas_waktu).days) + " hari"
 
+    @property
+    def denda(self):
+        dendaPerHari = 3000
+        if self.batas_waktu and (date.today() > self.batas_waktu):
+            return "Rp"+str((date.today()-self.batas_waktu).days*3)+" 000"
     STATUS_BUKU = (
         ('k', 'Keluar'),
         ('t', 'Tersedia'),

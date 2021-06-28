@@ -52,13 +52,10 @@ class PenulisDetailView(generic.DetailView):
     model = Penulis
 
 
-class BukuKeluarUser(LoginRequiredMixin, generic.ListView):
-    model = BukuInstance
-    template_name = 'daftar_buku_terpinjam_user.html'
-
-    def get_queryset(self):
-        return BukuInstance.objects.filter(peminjam=self.request.user).filter(status__exact="k").order_by('batas_waktu')
-
+def bukuKeluarUser(request):
+    list = BukuInstance.objects.filter(peminjam=request.user).filter(status__exact="k").order_by('batas_waktu')
+    count = BukuInstance.objects.filter(peminjam=request.user).filter(status__exact="k").order_by('batas_waktu').count()
+    return render(request, 'bukuinstance_list.html', {'list':list, 'count':count})
 
 class SemuaBukuKeluar(PermissionRequiredMixin, generic.ListView):
     model = BukuInstance
