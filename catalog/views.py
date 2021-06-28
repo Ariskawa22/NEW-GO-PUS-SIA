@@ -38,7 +38,6 @@ def index(request):
 
 class BukuListView(generic.ListView):
     model = Buku
-    paginate_by = 10
 
 
 class BukuDetailView(generic.DetailView):
@@ -47,7 +46,6 @@ class BukuDetailView(generic.DetailView):
 
 class PenulisListView(generic.ListView):
     model = Penulis
-    paginate_by = 10
 
 
 class PenulisDetailView(generic.DetailView):
@@ -57,7 +55,6 @@ class PenulisDetailView(generic.DetailView):
 class BukuKeluarUser(LoginRequiredMixin, generic.ListView):
     model = BukuInstance
     template_name = 'daftar_buku_terpinjam_user.html'
-    paginate_by = 10
 
     def get_queryset(self):
         return BukuInstance.objects.filter(peminjam=self.request.user).filter(status__exact="k").order_by('batas_waktu')
@@ -67,7 +64,6 @@ class SemuaBukuKeluar(PermissionRequiredMixin, generic.ListView):
     model = BukuInstance
     permission_required = 'catalog.can_mark_returned'
     template_name = 'daftar_semua_buku_terpinjam'
-    paginate_by = 10
 
     def get_queryset(self):
         return BukuInstance.objects.filter(status__exact="k").order_by('batas_waktu')
