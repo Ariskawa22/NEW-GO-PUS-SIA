@@ -55,7 +55,6 @@ class BukuInstance(models.Model):
 
     @property
     def denda(self):
-        dendaPerHari = 3000
         if self.batas_waktu and (date.today() > self.batas_waktu):
             return "Rp"+str((date.today()-self.batas_waktu).days*3)+" 000"
     STATUS_BUKU = (
