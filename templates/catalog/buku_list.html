@@ -13,7 +13,10 @@
     }
     </style>
     <h1>Daftar Buku</h1>
-
+    <div style="margin-bottom: 4px">
+        <a href="search"><button>Telusuri Katalog</button></a>
+    </div>
+    <br>
     {% if buku_list %}
     <div class="grid-container" style="width: 100%">
         {% for buku in buku_list %}

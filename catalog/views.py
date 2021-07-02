@@ -1,12 +1,14 @@
 import datetime
+import json
 
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth.models import User
+from django.core import serializers
 from django.core.checks import messages
 from django.db import transaction
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.views.generic import CreateView, UpdateView, DeleteView
@@ -55,7 +57,8 @@ class PenulisDetailView(generic.DetailView):
 def bukuKeluarUser(request):
     list = BukuInstance.objects.filter(peminjam=request.user).filter(status__exact="k").order_by('batas_waktu')
     count = BukuInstance.objects.filter(peminjam=request.user).filter(status__exact="k").order_by('batas_waktu').count()
-    return render(request, 'bukuinstance_list.html', {'list':list, 'count':count})
+    return render(request, 'bukuinstance_list.html', {'list': list, 'count': count})
+
 
 class SemuaBukuKeluar(PermissionRequiredMixin, generic.ListView):
     model = BukuInstance
@@ -167,3 +170,10 @@ def view_profile(request):
     return render(request, 'auth/view_profile.html')
 
 
+def raw(request):
+    data = serializers.serialize("json", Buku.objects.all(), use_natural_foreign_keys=True)
+    data = json.loads(data)
+    return JsonResponse(data, json_dumps_params={'indent': 2}, safe=False)
+
+
+def search(request): return render(request, 'buku_search.html')

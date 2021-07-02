@@ -8,8 +8,17 @@ from django.dispatch import receiver
 from django.urls import reverse
 
 
+class PenulisManager(models.Manager):
+    def get_by_natural_key(self, nama):
+        return self.get(nama=nama)
+
+
 class Penulis(models.Model):
     nama = models.CharField(max_length=60, help_text="Nama penulis")
+    objects = PenulisManager()
+
+    def natural_key(self):
+        return self.nama
 
     def __str__(self):
         return self.nama
