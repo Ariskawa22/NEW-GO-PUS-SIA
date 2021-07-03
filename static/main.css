@@ -65,13 +65,16 @@
   .sidebar a {font-size: 18px;}
 }
 .logo_header{
+    top:0;
+    position: sticky;
     font-family: 'Quicksand', sans-serif;
     background-color: #67A18A;
     color: white;
     max-width: 100%;
     padding: 0.5em;
     font-size: 1.5em;
-    margin: 0
+    margin: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 body{
     background-color: white;
@@ -102,6 +105,7 @@ body{
 }
 .helptext{
     font-style: italic;
+    font-size: 0.75em;
 }
 .new-grid-container{
     display: grid;
@@ -115,11 +119,31 @@ body{
 }
 .card{
     background-color: white;
-    padding: 2em;
+    padding: 15px;
     border-radius: 1em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
     width: 90%;
 }
 .center-text{
     margin-left: auto; margin-right: auto
+}
+.footer{
+    background-color: #67A18A;
+    color: white;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.25);
+    padding: 1em;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.topnav{
+    font-size: 0.75em;
+}
+.topnav .a{
+    text-decoration: underline;
+}
+.button{
+    background-color: #67A18A;
 }

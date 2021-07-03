@@ -64,7 +64,7 @@
                 resultarray.forEach((buku)=>{
                 result.innerHTML+=`
                 <a href="${window.location.origin}/buku/${buku.pk}">
-			        <div style="text-align: center; background-color: white; padding: 5px; border-radius: 1em; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); width: 90%;">
+			        <div style="text-align: center; background-color: white; padding: 5px; border-radius: 1em; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); width: 90%; padding: 15px">
                         <img
                             src="${ buku.fields.url_sampul }"
                             alt="Sampul buku ${ buku.fields.judul }"
