@@ -37,10 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
-    'catalog',
-    'tailwind'
+    'catalog'
 ]
-TAILWIND_APP_NAME = 'catalog'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
