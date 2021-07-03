@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
-    'catalog'
+    'catalog',
+    'tailwind'
 ]
+TAILWIND_APP_NAME = 'catalog'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -132,4 +134,5 @@ LOGOUT_REDIRECT_URL = 'index'
 
 if 'DATABASE_URL' in os.environ:
     import dj_database_url
+
     DATABASES = {'default': dj_database_url.config()}

@@ -11,6 +11,7 @@
     <link rel='stylesheet' type="text/css" href="{% static 'main.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="mySidebar" class="sidebar">
@@ -38,20 +39,21 @@
         <a href="/logout">Logout</a>
         {% endif %}
     </div>
-    <div id="main">
+    <div id="main" class="inner-body">
         <div class="logo_header">
             <span>
                 <button class="openbtn" onclick="openNav()">&#9776;</button>
             </span>
             <span>GO-PUS</span>
         </div>
-        <div style="width: 100%">
+    <!--
+        <div style="width: 100%; padding-left: 1em">
             {% if user.is_authenticated %}
-                <span style="margin-right: 0; margin-left: auto">Hello, {{ request.user.first_name }}</span>
+                <span style="margin-right: 0; margin-left: auto">Hallo, {{ request.user.first_name }}!</span>
             {% endif %}
         </div>
-
-        <div style="min-height: 100vh; font-family: 'Poppins', sans-serif">
+    -->
+        <div class="content">
             {% block body %}
                 you should not see this
             {% endblock %}

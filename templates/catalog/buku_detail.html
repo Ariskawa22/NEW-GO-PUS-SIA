@@ -3,48 +3,19 @@
     {{ buku.judul }}
 {% endblock %}
 {% block body %}
-    <section>
-        <div style="width: 25%; float: left; display: block">
-            <img src="{{ buku.url_sampul }}" id="sampul" width="100%">
-            <script>console.log({{ buku.url_sampul }})</script>
-        </div>
-        <div style="width: 70%; display: inline; margin-left: 20px; text-align: left; float: right">
-            <h2>
-                Judul
-            </h2>
-            <span>
-                {{ buku.judul }}
-            </span>
-            <h2>
-                Penulis
-            </h2>
-            <span>
-                {{ buku.penulis }}
-            </span>
-            <h2>
-                ISBN
-            </h2>
-            <span>
-                {{ buku.isbn }}
-            </span>
-            <h2>
-                Tahun Terbit
-            </h2>
-            <span>
-                {{ buku.tahun }}
-            </span>
-            <h2>
-                Stok
-            </h2>
-            <span>
-                {{ buku.bukuinstance_set.count }}
-            </span>
-            <h2>
-                Lokasi Rak
-            </h2>
-            <span>
-                {{ buku.lokasi }}
-            </span>
-        </div>
-    </section>
+    <div class="card" style="display: flex; flex-direction: column">
+        <img src="{{ buku.url_sampul }}" id="sampul" style="width: 25%; margin-left: auto; margin-right: auto; margin-bottom: 15px">
+        <span class="center-text" style="font-weight: bold">Judul</span>
+        <span class="center-text">{{ buku.judul }}</span>
+        <span class="center-text" style="font-weight: bold">Penulis</span>
+        <span class="center-text">{{ buku.penulis }}</span>
+        <span class="center-text" style="font-weight: bold">ISBN</span>
+        <span class="center-text">{{ buku.isbn }}</span>
+        <span class="center-text" style="font-weight: bold">Tahun Terbit</span>
+        <span class="center-text">{{ buku.tahun }}</span>
+        <span class="center-text" style="font-weight: bold">Jumlah tersedia</span>
+        <span class="center-text">{{ buku.bukuinstance_set.count }}</span>
+        <span class="center-text" style="font-weight: bold">Lokasi</span>
+        <span class="center-text">{{ buku.lokasi }}</span>
+    </div>
 {% endblock %}
