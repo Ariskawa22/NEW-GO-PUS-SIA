@@ -9,9 +9,8 @@ from catalog.views import index, BukuUpdate, BukuDelete, BukuCreate, BukuDetailV
 
 urlpatterns = [
     path('', index, name='index'),
-    path('buku/', BukuListView.as_view(), name="buku"),
+    path('buku/', search, name="search"),
     path('buku/raw', raw, name="raw"),
-    path('buku/search', search, name="search"),
     path('buku/<int:pk>', BukuDetailView.as_view(), name="detail-buku"),
     path('bukusaya/', bukuKeluarUser, name="buku-saya"),
     path(r'buku/keluar/', SemuaBukuKeluar.as_view(), name="buku-keluar"),

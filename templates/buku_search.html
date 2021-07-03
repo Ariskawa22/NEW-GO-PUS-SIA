@@ -39,9 +39,20 @@
             )
         )
         }
+    </script>
+    <body>
+        <h1>Daftar Buku</h1>
+        <form onsubmit="search(event)">
+            <label for="name">Nama Buku:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <input type="submit" value="Cari">
+        </form>
+        <div class="grid-container" style="width: 100%" id="result">
+            <div></div>
+        </div>
+    <script>
         const preload = (e) =>{
             console.log("yes")
-            e.preventDefault()
             fetch(`${window.location.origin}/buku/raw`).then((res)=>res.json().then((data)=> {
                 let result = document.getElementById("result")
                 result.innerHTML=""
@@ -60,18 +71,10 @@
 			        </div>
 		        </a>`
             }
-            )}))
-        }
+            )}))}
+        preload()
     </script>
-    <h1>Daftar Buku</h1>
-    <form onsubmit="search(event)">
-        <label for="name">Nama Buku:</label><br>
-        <input type="text" id="name" name="name"><br>
-        <input type="submit" value="Cari">
-    </form>
-    <div class="grid-container" style="width: 100%" id="result" onload="preload">
-        <div></div>
-    </div>
+    </body>
 
 
 {% endblock %}
