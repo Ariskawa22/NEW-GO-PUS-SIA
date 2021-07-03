@@ -21,7 +21,7 @@
                     <div class="card" style="text-align: center; height: 90%">
                         <img src="{{ buku.buku.url_sampul }}" style="max-width: 100%; max-height: 150px"><br>
                         <span style="font-weight: bold">{{ buku.buku.judul }}</span><br>
-                        <span>{{ buku.buku.penulis }}</span><br>
+                        <span style="font-style: italic">{{ buku.buku.penulis }}</span><br>
                         <span>Dipinjam sampai {{ buku.batas_waktu }}</span><br>
                         {% if buku.terlambat %}
                             <span>Terlambat {{ buku.terlambatBy }}</span><br>
