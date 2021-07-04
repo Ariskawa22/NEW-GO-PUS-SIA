@@ -177,3 +177,6 @@ def raw(request):
 
 
 def search(request): return render(request, 'buku_search.html')
+
+
+def panduan(request): return render(request, 'panduan.html')

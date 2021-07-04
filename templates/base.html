@@ -31,14 +31,14 @@
                     <span>|</span>
                     <a href="/register">Daftar</a>
                 {% endif %}
-                {% if user.is_superuser %}
-                    <span>|</span>
+                <span>|</span>
+                <a href="/panduan">Panduan</a>
+            {% if user.is_superuser %}
+                <br>
                     <a href="/admin">Admin</a>
                     <span>|</span>
                     <a href="/admin/catalog/bukuinstance/">Semua Instansi Buku</a>
                 {% endif %}
-                <span>|</span>
-                <a href="/">Panduan</a>
             </div>
         </div>
         <div class="content">
@@ -46,7 +46,14 @@
                 you should not see this
             {% endblock %}
         </div>
-        <div class="footer">Go-Pus 2021<br><a href="http://www.franciswibisono.com" style="color: white; text-decoration: none">Francis Wibisono</a></div>
+        <div class="footer">Go-Pus 2021<br>
+            <span style="font-size: 0.5em">Made by</span>
+            <a href="http://www.franciswibisono.com" style="color: white; text-decoration: underline; font-size: 0.75em">Francis Wibisono</a>
+            <span style="font-size: 0.5em">for</span><br>
+            <span>Kelompok 2 AKT 20 IUP</span><br>
+            <span>Sistem Informasi Manajemen,</span>
+            <a href="https://unnes.ac.id/" style="color: white; text-decoration: underline;">Universitas Negeri Semarang</a>
+        </div>
     </div>
     <script>
     function myFunction() {
